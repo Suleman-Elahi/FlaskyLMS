@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leave Application Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8" />
+
+<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css'>
+<style>
+#circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+	width: 150px;
+    height: 150px;	
+}
+
+.loader {
+    width: calc(100% - 0px);
+	height: calc(100% - 0px);
+	border: 8px solid #162534;
+	border-top: 8px solid #09f;
+	border-radius: 50%;
+	animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+100% {transform: rotate(360deg);}
+} 
+</style>
+
+</head>
+<body class="bg-dark">
+<div id="circle">
+  <div class="loader">
+    <div class="loader">
+        <div class="loader">
+           <div class="loader">
+
+           </div>
+        </div>
+    </div>
+  </div>
+</div> 
+<script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script>
+$(document).ready(function() {
+  $('#myForm').on('submit', function(event) {
+    event.preventDefault();
+    $(this).addClass('blurred');
+    $('#spinner').show();
+    // do form submission here
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <title>Leave Applications</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="UTF-8">
+
+<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<style>
+#circle {
+    display:none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+	width: 150px;
+    height: 150px;	
+}
+
+.loader {
+      width: calc(100% - 0px);
+	height: calc(100% - 0px);
+	border: 8px solid #162534;
+	border-top: 8px solid #09f;
+	border-radius: 50%;
+	animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+100% {transform: rotate(360deg);}
+}
+
+table.blurred {
+  filter: blur(5px);
+}
+</style>
+</head>
+<body class="bg-dark" id="applicationTable">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Inklik</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="http://{{domain}}:5000/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://{{domain}}:5000/leave_applications">Applications</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <a href="/logout">Logout</a>
+    </span>
+  </div>
+</nav>
+<!-- partial:index.partial.html -->
+              <div class="card-body">
+                <div class="table-responsive">
+    <table class="table table-dark table-borderless mb-0">
+      <thead>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Total Leaves</th>
+            <th scope="col">Leave Period</th>
+            <th scope="col">Reason</th>
+            <th scope="col">Status</th>
+        </tr>
+           </thead>
+      <tbody>
+        {% for row in data %}
+        <tr>
+          <td>{{ row[0] }}</td>
+          <td id="email">{{ row[1] }}</td>
+          <td>{{ row[2] }}</td>
+          <td>{{ row[3] }}</td>
+          <td>{{ row[4] }}</td>
+          <td>{{ row[5] }}</td>
+          <td>
+            <select name="sel1" class="form-control">
+                                    <option value="approved">Approve</option>
+                                    <option value="rejected">Reject</option>
+                                </select>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div><br>
+                <button type="button" class="btn btn-success" onClick="updateStatus()">Save Changes</button>
+    </div>
+<!-- Button trigger modal -->
+<div class="container">
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Leaves Data Processed!</h4>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          The leaves data has been updated in the database and email notifications to team members has been sent.
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" onclick="javascript:window.location.reload()" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div id="circle">
+  <div class="loader">
+    <div class="loader">
+        <div class="loader">
+           <div class="loader">
+
+           </div>
+        </div>
+    </div>
+  </div>
+</div> 
+<!-- partial -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <script  src="{{url_for('static', filename='script.js')}}"></script>
+
+</body>
+</html>

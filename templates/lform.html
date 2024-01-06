@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leave Application Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8" />
+
+<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css'>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<style>
+.form{
+  width:50%;
+  margin: auto;
+  padding: 30px;
+}
+</style>
+
+</head>
+<body class="bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Inklik</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="http://{{domain}}:5000/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://{{domain}}:5000/leave_applications">Applications</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="form">
+<form action="#" method="post">
+		<input class="form-control"  type="text"  name="name" placeholder="Your Name" required><br>
+		<input class="form-control" type="email" name="email" placeholder="Your Email" required><br>
+		<input class="form-control" type="text" name="leave_days" placeholder="Total Number of Leaves" required><br>
+        <input type="date" class="form-control" id="dates" name="leave_period" placeholder="Select days" /><br>
+		<textarea class="form-control" name="reason" placeholder="Type your reason" required></textarea><br>
+		<input class="form-control btn btn-primary mb-2" type="submit" value="Submit">
+	</form>
+      </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js'></script>
+<script  src="{{url_for('static', filename='script.js')}}"></script>
+<script>
+flatpickr("#dates",{
+    mode: "range",
+    dateFormat: "d-m-Y"
+});
+</script>
+</body>
+</html>
