@@ -140,7 +140,7 @@ def index():
              "reason":reason,
              }             
         message = Message(
-        subject='New Leave Request Recieved | Inklik',
+        subject='New Leave Request Recieved | FlaskyLMS',
         recipients=recipients,
         html=render_template(template_name_or_list="leave_notification.html", **context))
         send_email(message)
@@ -209,7 +209,7 @@ def submit():
               "status": data[6],
               }
             message = Message(
-            subject='Your Leave Request Status | Inklik',
+            subject='Your Leave Request Status | FlaskyLMS',
             recipients=[email],
             html=render_template(template_name_or_list="emp_leave_notification.html", **context))
             send_email(message)
