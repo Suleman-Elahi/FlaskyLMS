@@ -1,0 +1,4 @@
+python-dotenv
+flask
+flask_mail
+google-api-python-client
